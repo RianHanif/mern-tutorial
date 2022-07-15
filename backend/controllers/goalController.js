@@ -5,7 +5,7 @@ const Goal = require('../models/goalModel')
 //@route    GET /api/goals
 //@Access   Private
 const getGoals = asyncHandler (async (req,res) => {
-    const goals = await Goal.find()
+    const goals = await Goal.find({user: req.user.id})
     res.status(200).json(goals)
 })
 
