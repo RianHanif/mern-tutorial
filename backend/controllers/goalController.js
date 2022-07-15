@@ -2,6 +2,10 @@
 //@route    GET /api/goals
 //@Access   Private
 const getGoals = (req,res) => {
+    if(!req.body.text){
+        res.status(400).json({message: 'Please add a text field'})
+    }
+
     res.status(200).json({message: 'Get Goals'})
 }
 
